@@ -20,8 +20,8 @@ public final class LoginPage {
             .withIosXpathStatic("//XCUIElementTypeSecureTextField[@name=\"register.passwordInput.textInput.textField\"]");
 
     private static final Locator BTN_START_SESSION_LOCATOR = locator()
-            .withAndroidId("com.bineo.dev:id/authenticationJourney_usernameScreen_loginButton")
-            .withIosXpathStatic("//XCUIElementTypeButton[@name=\"register.loginButton\"]\n");
+            .withAndroidXpathStatic("//android.widget.Button[contains(@text,'Iniciar sesión')]")
+            .withIosXpathStatic("//XCUIElementTypeButton[@name=\"register.loginButton\"]");
 
     private static final Locator LOGIN_OTP_TITTLE_AND_MESSAGE_LOCATOR = locator()
             .withAndroidXpathDynamic("//*[@text='{0}']")
