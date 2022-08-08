@@ -1,0 +1,78 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'net.serenity-bdd.aggregator'
+apply plugin: "org.sonarqube"
+
+group = 'com.bineo.app.qa'
+version = '1.0-SNAPSHOT'
+
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+    dependencies {
+        classpath "net.serenity-bdd:serenity-gradle-plugin:2.1.4"
+        classpath "net.serenity-bdd:serenity-single-page-report:2.1.4"
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.3"
+    }
+}
+
+ext {
+    serenityVersion = '2.1.4'
+    serenityCucumberVersion = '1.9.51'
+    restassuredVersion = '4.2.0'
+    appiumVersion = '7.5.1'
+    devcoVersion = '1.3.11'
+    lombokVersion = '1.18.4'
+    junitVersion = '4.12'
+}
+
+dependencies {
+    implementation "junit:junit:$rootProject.ext.junitVersion"
+    implementation "net.serenity-bdd:serenity-core:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-junit:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-screenplay:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-screenplay-webdriver:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-screenplay-rest:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-cucumber:$rootProject.ext.serenityCucumberVersion"
+    implementation "net.serenity-bdd:serenity-ensure:$rootProject.ext.serenityVersion"
+    implementation "io.rest-assured:json-schema-validator:$rootProject.ext.restassuredVersion"
+    implementation "io.rest-assured:json-path:$rootProject.ext.restassuredVersion"
+    implementation "io.appium:java-client:$rootProject.ext.appiumVersion"
+    implementation "co.com.devco.automation:automationDevcoLibrary:$rootProject.ext.devcoVersion"
+    compileOnly "org.projectlombok:lombok:$rootProject.ext.lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$rootProject.ext.lombokVersion"
+
+}
+sonarqube {
+    properties {
+        property "sonar.host.url", "https://sonarcloud.io"
+        property "sonar.login", "6nx6ediijl5p6ykgtwwfia463xn3b3v6clbgbiusqgs672bge6pq"
+        property "sonar.organization", "terpel"
+        property "sonar.projectKey", "fidelidad_app-fidelizacion_E2E-app-react"
+        property "sonar.scm.disabled", "True"
+    }
+}
+test {
+    testLogging.showStandardStreams = true
+    testLogging.exceptionFormat = 'full'
+    systemProperties System.getProperties()
+    systemProperty 'file.encoding', 'UTF-8'
+    systemProperty "cucumber.options", System.getProperty("cucumber.options")
+}
+
+gradle.startParameter.continueOnFailure = true
+test.finalizedBy(aggregate)

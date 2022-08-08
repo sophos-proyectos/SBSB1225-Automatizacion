@@ -1,0 +1,10 @@
+{
+  "users": [
+    {
+      "code": "exitoso",
+      "email": "backbaseUser2@backbase.com",
+      "password": "Qwerty9876$",
+      "otp": "123456"
+    }
+  ]
+}

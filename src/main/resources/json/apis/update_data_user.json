@@ -1,0 +1,37 @@
+{
+  "data": [
+    {
+      "SalesforceId": "0010t00001YPZBAAA5",
+      "informacionPerfil": {
+        "BirthDate": "01/01/2001",
+        "State": "Bogota",
+        "City": "Bogota D.C.",
+        "Address": "Calle 90 # 200 - 16",
+        "VehicleType": "",
+        "Gender": "F",
+        "FirstName": "",
+        "SecondName": "",
+        "FirstLastName": "",
+        "SecondLastName": "",
+        "CellPhone": "",
+        "Email": "",
+        "IsOfLegalAge": true,
+        "ReferalCode": "",
+        "AppStatus": "Activo",
+        "AppUpdated": true,
+        "UpdateDate": "17/09/2021 08:42 AM",
+        "UpdateOrigen": " demo App"
+      },
+      "informacionClienteTC": {
+        "AgreedHD": false,
+        "HDDate": "06/09/2021 10:10 AM",
+        "HDVersion": "2",
+        "AgreedTC": true,
+        "TCDate": "06/09/2021 10:10 AM",
+        "TCVersion": "2",
+        "IP": "192.168.2.52",
+        "Origen": " demo App"
+      }
+    }
+  ]
+}

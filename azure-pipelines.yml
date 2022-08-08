@@ -1,0 +1,75 @@
+# Gradle
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+
+trigger:
+- azure-pipelines1
+
+pool: hosted-windows
+
+steps:
+- task: SonarCloudPrepare@1
+  displayName: 'Preparar sonar'
+  inputs:
+    SonarCloud: 'Tokendemo'
+    organization: 'demo'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'fidelidad_app-fidelizacion_E2E-app-react'
+    cliProjectName: 'bineo-test'
+    cliSources: '.'
+    extraProperties: |
+      sonar.sources=src/main/java
+      sonar.tests=src/test/java
+
+- task: Gradle@3
+  displayName: 'Limpiar target y ejecutar sonar'
+  inputs:
+    gradleWrapperFile: 'gradlew'
+    options: '--info'
+    tasks: 'clean -x test'
+    publishJUnitResults: false
+    javaHomeOption: 'JDKVersion'
+    sonarQubeRunAnalysis: true
+    sqGradlePluginVersionChoice: 'build'
+    spotBugsAnalysis: false
+  
+- task: sonarcloud-buildbreaker@2
+  displayName: 'Validacion Quality Gate'
+  inputs:
+      SonarCloud: 'Tokendemo'
+      organization: 'demo'
+- task: replacetokens@5
+  displayName: 'Leer credenciales de kobiton'
+  inputs:
+    rootDirectory: '$(System.DefaultWorkingDirectory)'
+    targetFiles: 'serenity.properties'
+    encoding: 'auto'
+    tokenPattern: 'azpipelines'
+    writeBOM: true
+    actionOnMissing: 'warn'
+    keepToken: false
+    actionOnNoFiles: 'continue'
+    enableTransforms: false
+    enableRecursion: false
+    useLegacyPattern: false
+    enableTelemetry: true
+    
+- task: Gradle@3
+  displayName: 'Ejecutar test en kobiton'
+  inputs:
+    gradleWrapperFile: 'gradlew'
+    tasks: 'test --tests TermsAndConditionsRunner -Dproperties=serenity.properties'
+    publishJUnitResults: false
+    javaHomeOption: 'JDKVersion'
+    sonarQubeRunAnalysis: false
+    spotBugsAnalysis: false
+
+- task: PublishPipelineArtifact@1
+  displayName: 'Publicar reporte'
+  inputs:
+    targetPath: '$(System.DefaultWorkingDirectory)/target/site/serenity'
+    artifact: 'Serenity Report'
+    publishLocation: 'pipeline'
+  condition: always()
+
