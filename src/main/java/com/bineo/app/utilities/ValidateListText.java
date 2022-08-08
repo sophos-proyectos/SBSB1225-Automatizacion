@@ -1,6 +1,5 @@
 package com.bineo.app.utilities;
 
-
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.targets.Target;
 

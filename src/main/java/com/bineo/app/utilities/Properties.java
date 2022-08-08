@@ -1,6 +1,5 @@
 package com.bineo.app.utilities;
 
-
 import net.thucydides.core.util.EnvironmentVariables;
 import org.openqa.selenium.WebDriver;
 
@@ -9,7 +8,6 @@ import java.util.concurrent.TimeUnit;
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getProxiedDriver;
 
 public class Properties {
-
 
     private static String platformName;
     private static String implicitlywait;

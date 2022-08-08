@@ -1,6 +1,5 @@
 package com.bineo.app.runners;
 
-
 import net.serenitybdd.cucumber.CucumberWithSerenity;
 
 import org.junit.runner.RunWith;

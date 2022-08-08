@@ -20,5 +20,4 @@ public class StartPage {
 
     public static final Target BTN_LOGIN = Target.the("login button").located(theElementBy(BTN_LOGIN_LOCATOR));
     public static final Target BTN_REGISTER = Target.the("register button").located(theElementBy(BTN_REGISTER_LOCATOR));
-
 }

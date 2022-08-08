@@ -16,7 +16,6 @@ import java.util.List;
 
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getProxiedDriver;
 
-
 public class Press implements Interaction {
     private final Target targetEvaulated;
     private final List<Integer> coordenates;

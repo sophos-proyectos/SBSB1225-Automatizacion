@@ -47,4 +47,3 @@ public class Move implements Interaction {
                 .release().perform();
     }
 }
-

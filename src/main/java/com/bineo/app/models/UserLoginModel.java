@@ -1,6 +1,5 @@
 package com.bineo.app.models;
 
-
 public class UserLoginModel {
     private String email;
     private String password;

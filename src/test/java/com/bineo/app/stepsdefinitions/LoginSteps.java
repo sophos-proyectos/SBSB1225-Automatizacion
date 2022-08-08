@@ -29,16 +29,17 @@ public class LoginSteps {
                 SelectAccessOption.selectAccessOption()
         );
     }
-    @E("^ingreso con la siguiente informacion$")
-    public void ingresoConLaSigueienteInformacion(DataTable table) {
-        theActorInTheSpotlight().attemptsTo(LoginDatatable.loginDatatable(table));
-    }
 
     @E("^ingresa con el correo (.*)$")
     public void ingresaElCorreoYLaContraseña(String code) {
         userModel = UserFactory.with(code);
         theActorInTheSpotlight().attemptsTo(Login.withData(userModel)
         );
+    }
+
+    @E("^ingreso con la siguiente informacion$")
+    public void ingresoConLaSigueienteInformacion(DataTable table) {
+        theActorInTheSpotlight().attemptsTo(LoginDatatable.loginDatatable(table));
     }
 
     @Entonces("^valido que el ingreso exitoso$")

@@ -9,7 +9,6 @@ import net.serenitybdd.screenplay.targets.Target;
 
 import java.time.Duration;
 
-
 public class OnboardingToApp implements Task {
     private final Target target;
 

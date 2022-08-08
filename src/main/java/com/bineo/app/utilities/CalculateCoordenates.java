@@ -40,5 +40,4 @@ public class CalculateCoordenates {
         coordenatesButtonLess.add(yFraccionado);
         return coordenatesButtonLess;
     }
-
 }
