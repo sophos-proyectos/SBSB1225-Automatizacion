@@ -8,7 +8,6 @@
 /.settings
 /bin
 /history
-/serenity.properties
 *.iml
 *.ipr
 *.iws
