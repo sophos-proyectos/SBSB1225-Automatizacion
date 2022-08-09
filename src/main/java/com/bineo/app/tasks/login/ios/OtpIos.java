@@ -1,12 +1,12 @@
 package com.bineo.app.tasks.login.ios;
 
-import net.serenitybdd.screenplay.Actor;
-import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.actions.Click;
-
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 import com.bineo.app.ui.ios.KeyboardNumberPage;
+
+import net.serenitybdd.screenplay.Actor;
+import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.actions.Click;
 
 public class OtpIos implements Task {
 

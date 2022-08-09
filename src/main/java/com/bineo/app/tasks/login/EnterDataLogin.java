@@ -11,16 +11,16 @@ import static net.serenitybdd.screenplay.Tasks.instrumented;
 import com.bineo.app.models.UserModel;
 import com.bineo.app.ui.LoginPage;
 
-public class Login implements Task {
+public class EnterDataLogin implements Task {
     private final UserModel userModel;
 
-    public Login(UserModel userModel) {
+    public EnterDataLogin(UserModel userModel) {
         this.userModel = userModel;
 
     }
 
-    public static Login withData(UserModel userModel) {
-        return instrumented(Login.class, userModel);
+    public static EnterDataLogin withData(UserModel userModel) {
+        return instrumented(EnterDataLogin.class, userModel);
 
     }
 

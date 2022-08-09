@@ -8,7 +8,9 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import com.bineo.app.factories.UserFactory;
 import com.bineo.app.models.UserModel;
 import com.bineo.app.tasks.AddPermissionsOfUbication;
-import com.bineo.app.tasks.login.Login;
+import com.bineo.app.tasks.login.EnterDataLogin;
+import com.bineo.app.tasks.login.EnterOTPLogin;
+import com.bineo.app.tasks.login.EnterOTPLoginData;
 import com.bineo.app.tasks.login.LoginDatatable;
 import com.bineo.app.tasks.login.SelectAccessOption;
 
@@ -23,7 +25,7 @@ public class LoginSteps {
     private UserModel userModel;
 
     @Dado("^(.*) desea ingresar a la aplicacion$")
-    public void deseaIngresarALaAplicacion(String name) {
+    public void wantToEnterToApp(String name) {
         theActorCalled(name).wasAbleTo(
                 AddPermissionsOfUbication.inIos(),
                 SelectAccessOption.selectAccessOption()
@@ -31,21 +33,31 @@ public class LoginSteps {
     }
 
     @E("^ingresa con el correo (.*)$")
-    public void ingresaElCorreoYLaContraseña(String code) {
+    public void enterWithData(String code) {
         userModel = UserFactory.with(code);
-        theActorInTheSpotlight().attemptsTo(Login.withData(userModel)
+        theActorInTheSpotlight().attemptsTo(EnterDataLogin.withData(userModel)
         );
     }
 
     @E("^ingreso con la siguiente informacion$")
-    public void ingresoConLaSigueienteInformacion(DataTable table) {
+    public void enterWithDatatable(DataTable table) {
         theActorInTheSpotlight().attemptsTo(LoginDatatable.loginDatatable(table));
     }
 
     @Entonces("^valido que el ingreso exitoso$")
-    public void validoQueElIngresoExitoso() {
+    public void validateSuccessfullLogin() {
         theActorInTheSpotlight().attemptsTo(
                 Ensure.that(LOGIN_OTP_TITTLE_PAGE.of(OTP_LOGIN_PAGE.message())).isDisplayed()
         );
+    }
+
+    @Entonces("^ingreso el codigo de verificacion$")
+    public void enterPasscode() {
+        theActorInTheSpotlight().attemptsTo(EnterOTPLogin.withUser(userModel));
+    }
+
+    @Entonces("^ingreso el codigo de verificacion (.*)$")
+    public void enterPasscode2(String otp) {
+        theActorInTheSpotlight().attemptsTo(EnterOTPLoginData.withCode(otp));
     }
 }

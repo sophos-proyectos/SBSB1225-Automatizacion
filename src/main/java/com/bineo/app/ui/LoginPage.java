@@ -1,6 +1,7 @@
 package com.bineo.app.ui;
 
 import co.com.devco.automation.mobile.locator.Locator;
+
 import net.serenitybdd.screenplay.targets.Target;
 
 import static co.com.devco.automation.mobile.locator.ElementFinder.dynamicElement;
@@ -28,7 +29,7 @@ public final class LoginPage {
             .withIosXpathDynamic("//XCUIElementTypeStaticText[@value='{0}']");
 
     private static final Locator OTP_TEXT_FIELD_LOCATOR = locator()
-            .withAndroidId("")
+            .withAndroidXpathStatic("")
             .withIosId("");
 
     public static final Target TYPE_SELECTOR_ID = Target.the("select as login").located(theElementBy(TYPE_SELECTOR_ID_LOCATOR));
