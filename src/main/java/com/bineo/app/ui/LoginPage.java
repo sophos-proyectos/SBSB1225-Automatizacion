@@ -24,9 +24,18 @@ public final class LoginPage {
             .withAndroidXpathStatic("//android.widget.Button[contains(@text,'Iniciar sesión')]")
             .withIosXpathStatic("//XCUIElementTypeButton[@name=\"register.loginButton\"]");
 
+    private static final Locator BTN_ENVIAR_LOCATOR = locator()
+            .withAndroidXpathStatic("//android.widget.Button[contains(@text,'Enviar')]")
+            .withIosXpathStatic("//XCUIElementTypeButton[@name=\"otpInput.submitButton\"]");
+
     private static final Locator LOGIN_OTP_TITTLE_AND_MESSAGE_LOCATOR = locator()
             .withAndroidXpathDynamic("//*[@text='{0}']")
             .withIosXpathDynamic("//XCUIElementTypeStaticText[@value='{0}']");
+
+    private static final Locator LOGIN_PASSCODE_TITTLE_AND_MESSAGE_LOCATOR = locator()
+            .withAndroidXpathDynamic("//*[@text='{0}']")
+            .withIosXpathDynamic("//XCUIElementTypeStaticText[@value='{0}']");
+
 
     private static final Locator OTP_TEXT_FIELD_LOCATOR = locator()
             .withAndroidXpathStatic("")
@@ -37,7 +46,9 @@ public final class LoginPage {
     public static final Target PASSWORD_TEXT_FIELD = Target.the("name text field").located(theElementBy(PASSWORD_TEXT_FIELD_LOCATOR));
     public static final Target OTP_TEXT_FIELD = Target.the("name text field").located(theElementBy(PASSWORD_TEXT_FIELD_LOCATOR));
     public static final Target BTN_START_SESSION = Target.the("name text field").located(theElementBy(BTN_START_SESSION_LOCATOR));
+    public static final Target BTN_ENVIAR = Target.the("name text field").located(theElementBy(BTN_ENVIAR_LOCATOR));
     public static final Target LOGIN_OTP_TITTLE_PAGE = Target.the("page tittle").locatedBy(dynamicElement(LOGIN_OTP_TITTLE_AND_MESSAGE_LOCATOR));
+    public static final Target LOGIN_PASSCODE_TITTLE_PAGE = Target.the("page tittle").locatedBy(dynamicElement(LOGIN_PASSCODE_TITTLE_AND_MESSAGE_LOCATOR));
 
     private LoginPage() {
     }

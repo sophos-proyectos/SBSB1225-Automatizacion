@@ -1,10 +1,9 @@
 package com.bineo.app.stepsdefinitions;
 
-import static com.bineo.app.enums.TittlePages.OTP_LOGIN_PAGE;
-import static com.bineo.app.ui.LoginPage.LOGIN_OTP_TITTLE_PAGE;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
+import com.bineo.app.enums.TittlePages;
 import com.bineo.app.factories.UserFactory;
 import com.bineo.app.models.UserModel;
 import com.bineo.app.tasks.AddPermissionsOfUbication;
@@ -13,6 +12,7 @@ import com.bineo.app.tasks.login.EnterOTPLogin;
 import com.bineo.app.tasks.login.EnterOTPLoginData;
 import com.bineo.app.tasks.login.LoginDatatable;
 import com.bineo.app.tasks.login.SelectAccessOption;
+import com.bineo.app.ui.LoginPage;
 
 import net.serenitybdd.screenplay.ensure.Ensure;
 
@@ -47,7 +47,7 @@ public class LoginSteps {
     @Entonces("^valido que el ingreso exitoso$")
     public void validateSuccessfullLogin() {
         theActorInTheSpotlight().attemptsTo(
-                Ensure.that(LOGIN_OTP_TITTLE_PAGE.of(OTP_LOGIN_PAGE.message())).isDisplayed()
+                Ensure.that(LoginPage.LOGIN_OTP_TITTLE_PAGE.of(TittlePages.OTP_LOGIN_PAGE.message())).isDisplayed()
         );
     }
 
@@ -59,5 +59,12 @@ public class LoginSteps {
     @Entonces("^ingreso el codigo de verificacion (.*)$")
     public void enterPasscode2(String otp) {
         theActorInTheSpotlight().attemptsTo(EnterOTPLoginData.withCode(otp));
+    }
+
+    @Entonces("^valido que la pantalla de ingreso del passcode sea visible$")
+    public void validatePAsscodeVisibility() {
+        theActorInTheSpotlight().attemptsTo(
+                Ensure.that(LoginPage.LOGIN_PASSCODE_TITTLE_PAGE.of(TittlePages.PASSCODE_LOGIN_PAGE.message())).isDisplayed()
+        );
     }
 }

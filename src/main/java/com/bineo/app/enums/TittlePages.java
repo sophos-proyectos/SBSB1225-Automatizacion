@@ -1,7 +1,8 @@
 package com.bineo.app.enums;
 
 public enum TittlePages {
-    OTP_LOGIN_PAGE("Verificar identidad");
+    OTP_LOGIN_PAGE("Verificar identidad"),
+    PASSCODE_LOGIN_PAGE("Crea tu passcode");
 
     private final String message;
 

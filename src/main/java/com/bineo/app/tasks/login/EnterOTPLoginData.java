@@ -1,8 +1,12 @@
 package com.bineo.app.tasks.login;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+
+import com.bineo.app.ui.LoginPage;
+
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.actions.Click;
 
 public class EnterOTPLoginData implements Task {
     private final String otp;
@@ -18,7 +22,8 @@ public class EnterOTPLoginData implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                EnterOtp.withCode(otp)
+                EnterOtp.withCode(otp),
+                Click.on(LoginPage.BTN_ENVIAR)
         );
     }
 }

@@ -51,7 +51,7 @@ public class SetTheStage {
             WebDriver facade = getProxiedDriver();
             ((AppiumDriver) facade).closeApp();
             ((AppiumDriver) facade).launchApp();
-
+            System.out.print("Lance la app neuvamente");
         } catch (Exception ex) {
             Logger.getAnonymousLogger().log(Level.WARNING, "Could not close driver. AppiumDriver not found", ex);
         }
