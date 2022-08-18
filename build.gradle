@@ -57,7 +57,7 @@ dependencies {
     annotationProcessor "org.projectlombok:lombok:$rootProject.ext.lombokVersion"
 
 }
-sonarqube {
+/*sonarqube {
     properties {
         property "sonar.host.url", "https://sonarcloud.io"
         property "sonar.login", "6nx6ediijl5p6ykgtwwfia463xn3b3v6clbgbiusqgs672bge6pq"
@@ -65,7 +65,7 @@ sonarqube {
         property "sonar.projectKey", "fidelidad_app-fidelizacion_E2E-app-react"
         property "sonar.scm.disabled", "True"
     }
-}
+}*/
 test {
     testLogging.showStandardStreams = true
     testLogging.exceptionFormat = 'full'
