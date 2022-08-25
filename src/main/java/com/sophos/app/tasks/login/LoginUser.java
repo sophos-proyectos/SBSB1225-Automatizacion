@@ -23,11 +23,13 @@ public class LoginUser implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        Enter.theValue(userModelList.get(0).getUsername()).into(LoginPage.LOGIN_USERNAME);
-        Enter.theValue(userModelList.get(0).getPassword()).into(LoginPage.LOGIN_PASSWORD);
+        actor.attemptsTo(
+                Enter.theValue(userModelList.get(0).getUsername()).into(LoginPage.LOGIN_USERNAME),
+                Enter.theValue(userModelList.get(0).getPassword()).into(LoginPage.LOGIN_PASSWORD)
+        );
     }
 
-    public static LoginUser loginUser (DataTable user){
-        return Tasks.instrumented(LoginUser.class,user);
+    public static LoginUser loginUser(DataTable user) {
+        return Tasks.instrumented(LoginUser.class, user);
     }
 }

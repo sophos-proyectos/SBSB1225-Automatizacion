@@ -29,5 +29,4 @@ public class LoginSteps {
     @Entonces("^valido que el ingreso sea exitoso$")
     public void validoQueElIngresoSeaExitoso(){
     }
-
 }
