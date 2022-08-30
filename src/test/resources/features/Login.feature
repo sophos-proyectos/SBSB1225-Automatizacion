@@ -7,4 +7,4 @@
     E ingresa un usuario y una contraseña
     |Username                  |Password                          |
     |sdbx-prd-sara             |ZGY2NDFkOThkOGQyMjU2MmNjMmYyOTg5  |
-    ##Entonces valido que el ingreso sea exitoso
+    Entonces valido que el ingreso sea exitoso
