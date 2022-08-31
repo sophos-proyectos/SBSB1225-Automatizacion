@@ -36,5 +36,4 @@ public class LoginSteps {
                 Ensure.that(LoginPage.LOGIN_FORGOT_USERNAME.of(TittlePages.FORGOT_USERNAME.message())).isDisplayed()
         );
     }
-
 }
