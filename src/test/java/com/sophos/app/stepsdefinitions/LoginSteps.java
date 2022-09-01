@@ -32,8 +32,8 @@ public class LoginSteps {
     @Entonces("^valido que el ingreso sea exitoso$")
     public void validoQueElIngresoSeaExitoso(){
         theActorInTheSpotlight().attemptsTo(
-                Ensure.that(LoginPage.LOGIN_FORGOT_USERNAME).isDisplayed(),
-                Ensure.that(LoginPage.LOGIN_FORGOT_USERNAME.of(TittlePages.FORGOT_USERNAME.message())).isDisplayed()
+                Ensure.that(LoginPage.LOGIN_CREATE_PASSCODE).isDisplayed(),
+                Ensure.that(LoginPage.LOGIN_CREATE_PASSCODE.of(TittlePages.CREATE_PASSCODE.message())).isDisplayed()
         );
     }
 }
