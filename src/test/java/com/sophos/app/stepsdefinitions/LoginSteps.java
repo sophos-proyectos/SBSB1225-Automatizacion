@@ -4,10 +4,12 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 import com.sophos.app.enums.TittlePages;
+import com.sophos.app.questions.ValueLogin;
 import com.sophos.app.tasks.AddPermissionsOfUbication;
 import com.sophos.app.tasks.login.LoginUser;
 import com.sophos.app.ui.LoginPage;
 
+import net.serenitybdd.screenplay.GivenWhenThen;
 import net.serenitybdd.screenplay.ensure.Ensure;
 
 import cucumber.api.DataTable;
@@ -31,9 +33,6 @@ public class LoginSteps {
 
     @Entonces("^valido que el ingreso sea exitoso$")
     public void validoQueElIngresoSeaExitoso(){
-        theActorInTheSpotlight().attemptsTo(
-                Ensure.that(LoginPage.LOGIN_CREATE_PASSCODE).isDisplayed(),
-                Ensure.that(LoginPage.LOGIN_CREATE_PASSCODE.of(TittlePages.CREATE_PASSCODE.message())).isDisplayed()
-        );
+        theActorInTheSpotlight().should(GivenWhenThen.seeThat(ValueLogin.verify()));
     }
 }
