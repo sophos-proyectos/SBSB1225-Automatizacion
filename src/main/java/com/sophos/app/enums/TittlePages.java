@@ -4,7 +4,9 @@ public enum TittlePages {
     OTP_LOGIN_PAGE("Verificar identidad"),
     PASSCODE_LOGIN_PAGE("Crea tu passcode"),
     FORGOT_USERNAME ("Forgot username"),
-    CREATE_PASSCODE("Create passcode");
+    CREATE_PASSCODE("Create passcode"),
+    CONFIRM_PASSCODE("Confirm passcode"),
+    MY_ACCOUNTS("My Accounts");
 
     private final String message;
 

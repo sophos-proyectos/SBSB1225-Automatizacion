@@ -1,7 +1,6 @@
 package com.sophos.app.tasks.login;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
-import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getProxiedDriver;
 
 import com.sophos.app.tasks.login.ios.OtpIos;
 import com.sophos.app.utilities.Properties;
@@ -11,9 +10,6 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.questions.Visibility;
-
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
 
 public class EnterOtp implements Task {
     private final String codeOtp;
@@ -29,8 +25,9 @@ public class EnterOtp implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         if (Properties.getPlatformName().equalsIgnoreCase(com.sophos.app.enums.Properties.PLATFORM_NAME.value())) {
-            AppiumDriver<MobileElement> driver = getProxiedDriver();
-            driver.getKeyboard().pressKey(codeOtp);
+            actor.attemptsTo(
+                    Passcode.withCode(codeOtp)
+            );
         } else {
             actor.attemptsTo(
                     OtpIos.withCode(codeOtp)

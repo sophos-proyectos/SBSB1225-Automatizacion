@@ -1,3 +1,5 @@
+defaultTasks 'clean', 'test', 'aggregate'
+
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'net.serenity-bdd.aggregator'
