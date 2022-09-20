@@ -5,9 +5,7 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 import com.sophos.app.tasks.AddPermissionsOfUbication;
 import com.sophos.app.tasks.login.LoginEnterPasscode;
-import com.sophos.app.tasks.login.LoginPasscode;
 import com.sophos.app.tasks.login.LoginUser;
-import com.sophos.app.tasks.login.ValidateLoginEnterConfirmPasscode;
 import com.sophos.app.tasks.login.ValidateLoginSuccess;
 
 import cucumber.api.DataTable;
