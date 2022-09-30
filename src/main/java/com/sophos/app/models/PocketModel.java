@@ -2,27 +2,27 @@ package com.sophos.app.models;
 
 public class PocketModel {
 
-    private String nombre;
-    private String monto;
+    private String name;
+    private String amount;
 
-    public PocketModel(String nombre, String monto) {
-        this.nombre = nombre;
-        this.monto = monto;
+    public PocketModel(String name, String amount) {
+        this.name = name;
+        this.amount = amount;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getMonto() {
-        return monto;
+    public String getAmount() {
+        return amount;
     }
 
-    public void setMonto(String monto) {
-        this.monto = monto;
+    public void setAmount(String amount) {
+        this.amount = amount;
     }
 }

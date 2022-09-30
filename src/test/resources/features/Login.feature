@@ -9,3 +9,10 @@ Característica: Yo como usuario de
       | sdbx-prd-sara | ZGY2NDFkOThkOGQyMjU2MmNjMmYyOTg5 |
     E ingreso con el passcode 15973
     Entonces valido que el ingreso sea exitoso
+
+  Escenario: Creación exitosa de pocket
+    Dado usuario desea crear un pocket
+    E ingresar nombre de pocket y monto
+      | Nombre de Pocket      | Monto                         |
+      | Viaje a Bahamas       | 100                           |
+    Entonces valido que la creacion sea exitosa
